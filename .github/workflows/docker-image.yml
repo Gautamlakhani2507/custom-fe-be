@@ -34,3 +34,10 @@ jobs:
           cd frontend
           docker build --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Checkout Kubernetes Manifests Repo
+        uses: actions/checkout@v2
+        with:
+          repository: gautamlakhani2507/manifest.yml  # Update with your correct repository name
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Token stored in Repo A
+          path: k8s-manifests
