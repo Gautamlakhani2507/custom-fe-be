@@ -40,7 +40,8 @@ jobs:
           token: ${{ secrets.ERSONAL_ACCESS_TOKEN }}
           repository: 'gautamlakhani2507/k8s-manifests'
           targetBranch: main
-          commitChange: true
+          commitChange: false
+          workDir: k8s-manifests
           changes: |
             {
               "k8s-manifests/deployment.yaml": {
