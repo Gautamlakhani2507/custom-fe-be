@@ -24,15 +24,15 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build and push Docker image with commit hash
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
-        run: |
-          IMAGE_TAG=${GITHUB_SHA}
-          cd frontend
-          docker build --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      # - name: Build and push Docker image with commit hash
+      #   env:
+      #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      #     ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+      #   run: |
+      #     IMAGE_TAG=${GITHUB_SHA}
+      #     cd frontend
+      #     docker build --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+      #     docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Checkout Kubernetes Manifests Repo
         uses: actions/checkout@v2
@@ -46,6 +46,7 @@ jobs:
         with:
           token: ${{ secrets.ERSONAL_ACCESS_TOKEN }}
           repository: 'gautamlakhani2507/k8s-manifests'
+          targetBranch: main
           workDir: k8s-manifests
           commitChange: true
           changes: |
