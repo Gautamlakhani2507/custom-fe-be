@@ -40,11 +40,10 @@ jobs:
           token: ${{ secrets.ERSONAL_ACCESS_TOKEN }}
           repository: 'gautamlakhani2507/k8s-manifests'
           targetBranch: main
-          workDir: k8s-manifests
           commitChange: true
           changes: |
             {
-              "deployment.yaml": {
+              "k8s-manifests/deployment.yaml": {
                 "spec.template.spec.containers.image": "${GITHUB_SHA}"
               }
             }
