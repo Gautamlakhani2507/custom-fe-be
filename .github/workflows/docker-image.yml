@@ -38,6 +38,6 @@ jobs:
       - name: Checkout Kubernetes Manifests Repo
         uses: actions/checkout@v2
         with:
-          repository: gautamlakhani2507/manifest.yml  # Update with your correct repository name
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Token stored in Repo A
+          repository: gautamlakhani2507/k8s-manifests 
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
           path: k8s-manifests
