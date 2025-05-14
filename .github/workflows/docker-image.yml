@@ -44,6 +44,6 @@ jobs:
           changes: |
             {
               "deployment.yaml": {
-                "spec.template.spec.containers.image": "f927c502e3344672a670b6a1ed2f9321b8c1d0ff"  # Update with the correct tag
+                "spec.template.spec.containers.image": "${GITHUB_SHA}"
               }
             }
