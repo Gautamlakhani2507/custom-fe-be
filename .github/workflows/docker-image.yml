@@ -46,7 +46,7 @@ jobs:
         uses: OpsVerseIO/image-updater-action@0.1.0
         with:
           valueFile: 'deployment.yaml'
-          propertyPath: 'spec.containers[0].image'
+          propertyPath: 'spec.template.spec.containers[0].image'
           value: '218306567362.dkr.ecr.us-east-1.amazonaws.com/practice-repo:${{ env.IMAGE_TAG }}'
           repository: 'gautamlakhani2507/k8s-manifests'
           workDir: 'k8s-manifests'
