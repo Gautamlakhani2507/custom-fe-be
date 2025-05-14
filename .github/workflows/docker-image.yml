@@ -45,6 +45,8 @@ jobs:
       - name: Update image tag in deployment manifest
         uses: OpsVerseIO/image-updater-action@0.1.0
         with:
-          file: k8s-manifests/deployment.yaml  # Path to your deployment file
-          image: 218306567362.dkr.ecr.us-east-1.amazonaws.com/practice-repo  # Your ECR image URL
-          new_tag: ${{ env.IMAGE_TAG }}     
+          valueFile: 'k8s-manifests/deployment.yaml'  # Path to your deployment file
+          propertyPath: 'spec.containers[0].image'  # Path to the image property in your YAML
+          value: '218306567362.dkr.ecr.us-east-1.amazonaws.com/practice-repo:${{ steps.login-ecr.outputs.registry }}'  # New image tag
+          commitChange: true  # Set to true if you want to commit the change
+  
