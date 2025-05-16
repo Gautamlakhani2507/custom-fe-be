@@ -61,7 +61,14 @@ jobs:
               "spec.template.spec.containers.image": "218306567362.dkr.ecr.us-east-1.amazonaws.com/practice-repo:${{ github.sha }}"
     
               }
-                }      
+                } 
+
+      - name: Show diff and last commit
+        run: |
+          cd manifests
+          git status
+          git diff
+          git log -n 2          
       - name: Commit and push updated manifest
         run: |
          cd manifests
