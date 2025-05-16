@@ -58,7 +58,7 @@ jobs:
           changes: |
             {
               "k8s-manifests/deployment.yaml": {
-              "spec.template.spec.containers.image": "218306567362.dkr.ecr.us-east-1.amazonaws.com/practice-repo:${{ github.sha }}"
+              "spec.template.spec.containers[0].image": "218306567362.dkr.ecr.us-east-1.amazonaws.com/practice-repo:${{ github.sha }}"
     
               }
                 } 
