@@ -58,8 +58,7 @@ jobs:
           changes: |
             {
               "k8s-manifests/deployment.yaml": {
-               # "spec.template.spec.containers.image": "${GITHUB_SHA}"
-               "spec.template.spec.containers[0].image": "${{ github.sha }}"
+              "spec.template.spec.containers.image": "${GITHUB_SHA}"
               }
                 }      
       - name: Debug Git status
