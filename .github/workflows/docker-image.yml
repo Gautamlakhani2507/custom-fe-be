@@ -57,7 +57,7 @@ jobs:
           workDir: manifests
           changes: |
             {
-              "deployment.yaml": {
+              "k8s-manifests/deployment.yaml": {
                 "spec.template.spec.containers.image": "${GITHUB_SHA}"
               }
             }
