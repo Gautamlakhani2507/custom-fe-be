@@ -53,7 +53,7 @@ jobs:
           token: ${{ secrets.ERSONAL_ACCESS_TOKEN }}
           repository: 'gautamlakhani2507/k8s-manifests'
           targetBranch: main
-          commitChange: true 
+          commitChange: false 
           workDir: manifests
           changes: |
             {
@@ -62,9 +62,15 @@ jobs:
     
               }
                 }      
-      - name: Debug Git status
+      - name: Commit and push updated manifest
         run: |
-          cd manifests  # or your `workDir`
-          git status
-          git log -n 2
+         cd manifests
+         git config user.email "github-actions[bot]@users.noreply.github.com"
+         git config user.name "github-actions[bot]"
+         git add .
+         git commit -m "Update deployment image to commit $GITHUB_SHA"
+         git push origin main
+
+   
+
   
