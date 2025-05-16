@@ -39,7 +39,7 @@ jobs:
         with:
           repository: gautamlakhani2507/k8s-manifests
           token: ${{ secrets.ERSONAL_ACCESS_TOKEN }}
-          path: k8s-manifests  # This creates the folder on the runner
+          path: manifests # This creates the folder on the runner
 
       - name: List files for debugging
         run: |
@@ -54,7 +54,7 @@ jobs:
           repository: 'gautamlakhani2507/k8s-manifests'
           targetBranch: main
           commitChange: true 
-          workDir: k8s-manifests
+          workDir: manifests
           changes: |
             {
               "deployment.yaml": {
