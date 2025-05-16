@@ -60,4 +60,10 @@ jobs:
               "k8s-manifests/deployment.yaml": {
                 "spec.template.spec.containers.image": "${GITHUB_SHA}"
               }
-            }
+                }      
+      - name: Debug Git status
+        run: |
+          cd manifests  # or your `workDir`
+          git status
+          git log -n 2
+  
