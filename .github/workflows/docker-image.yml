@@ -1,5 +1,4 @@
 name: Build, Push Docker Image, and Update Kubernetes Deployment
-#test
 on:
   push:
     branches:
